@@ -12,12 +12,13 @@ public class APCalendar
    */
   public static int numberOfLeapYears(int year1, int year2)
   { 
-   lights = new boolean [numRows][numCols];
-    for (int r = 0; r < numRows; r++){
-      for (int c = 0; c < numCols; c++){
-        lights[r][c] = Math.random() < 0.4;
+    int count = 0;
+    for (int i = year1; i<=year2; i++){
+      if (isLeapYear(i)){
+        count++;
       }
     }
+    return count;
   }
   
   /** Returns the value representing the day of the week for the first day of year,
@@ -55,7 +56,7 @@ public class APCalendar
    */
   public static int dayOfWeek(int month, int day, int year)
   {
-   int additionalDays = dayOfYear(month, day, year) - 1;
+    int additionalDays = dayOfYear(month, day, year) - 1;
     return (firstDayOfYear(year) + additionalDays) % 7;
   }
 }
